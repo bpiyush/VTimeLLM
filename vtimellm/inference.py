@@ -68,6 +68,7 @@ def parse_args():
     parser.add_argument("--stage2", type=str, default="checkpoints/vtimellm-vicuna-v1-5-7b-stage2")
     parser.add_argument("--stage3", type=str, default="checkpoints/vtimellm-vicuna-v1-5-7b-stage3")
     parser.add_argument("--video_path", type=str, default="images/demo.mp4")
+    parser.add_argument("--N", type=int, default=100)
     args = parser.parse_args()
 
     return args
@@ -84,7 +85,7 @@ if __name__ == "__main__":
     clip_model.eval()
     clip_model = clip_model.cuda()
 
-    video_loader = VideoExtractor(N=100)
+    video_loader = VideoExtractor(N=args.N)
     _, images = video_loader.extract({'id': None, 'video': args.video_path})
 
     transform = Compose([

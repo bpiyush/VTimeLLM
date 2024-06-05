@@ -2,3 +2,7 @@
 checkpoints/
 .ipynb_checkpoints/
 wandb/
+
+*.mp4
+*.webm
+checkpoints

@@ -98,7 +98,7 @@ class VideoExtractor():
     def extract(self, data):
         video_path = data['video']
         id = data['id']
-        
+
         try:
             video_reader = decord.VideoReader(video_path)
             total_frames = len(video_reader)
